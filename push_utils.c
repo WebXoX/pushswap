@@ -99,8 +99,8 @@ void	rrab(t_list **first, int flag)
 
 // void	rrr(t_list **a, t_list **b)
 // {
-// 	rab(a);
-// 	rab(b);
+// 	rrab(a);
+// 	rrab(b);
 // }
 
 // void	rr(t_list **a, t_list **b)

@@ -15,23 +15,19 @@
 int	chunck(int size, int iterator, int i)
 {
 	int	loop;
-	int	diff;
 
 	loop = size / i - 1;
-	diff = size - loop * 3;
 	return (i * (loop - iterator));
 }
 
 int	distance(t_list *a, int i)
 {
-	t_list	*b;
 	int		count;
 	int		diff;
 	int		size;
 
 	count = 0;
 	diff = 0;
-	b = a;
 	size = ft_lstsize(a);
 	while (a)
 	{

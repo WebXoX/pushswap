@@ -96,10 +96,9 @@ void	push_caller(t_list **a, int i, char *argc[], int argv)
 		else
 		{
 			if (checker(argc[i]) == 1)
-			{
-				write(1, "Error\n", 6);
 				return ;
-			}
+			if (argv > 2)
+				move = ft_atoi(argc[2], move);
 			move = ft_atoi(argc[i], move);
 			tmp = ft_lstnew(move);
 			ft_lstadd_back(&(*a), tmp);

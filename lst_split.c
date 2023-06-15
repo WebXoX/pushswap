@@ -26,6 +26,7 @@ int	checker(char *str)
 		if (!((str[0] == '-') || (str[i] >= '0' && str[i] <= '9')))
 		{
 			flag = 1;
+			write(1, "Error\n", 6);
 			break ;
 		}
 		i++;
@@ -48,7 +49,6 @@ t_list	*split(char *argc)
 	{
 		if (checker(str[i]) == 1)
 		{
-			printf("Error\n");
 			freed(str);
 			ft_lstclear(&first, free);
 			return (NULL);

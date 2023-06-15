@@ -29,7 +29,7 @@ int	same(t_list *a)
 				count++;
 			if (count == 2)
 			{
-				printf("Error\n");
+				write(1, "Error\n", 6);
 				return (1);
 			}
 			tmp1 = tmp1->next;
