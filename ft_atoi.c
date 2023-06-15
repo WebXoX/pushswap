@@ -35,7 +35,7 @@ int	ft_atoi(const char *nptr, int move)
 	result = 0;
 	i = 0;
 	i = spacexsign(nptr, i, &sign);
-	while (nptr[i] != '\0' &&(i<10|| (nptr[0]=='-' && i<11)))
+	while (nptr[i] != '\0' && (i < 10 || (nptr[0] == '-' && i < 11)))
 	{
 		if (sign == -1 && i == 10 && result == 214748364 && nptr[i] > '8')
 			return (move);

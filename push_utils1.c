@@ -22,9 +22,9 @@ int	chunck(int size, int iterator, int i)
 
 int	distance(t_list *a, int i)
 {
-	int		count;
-	int		diff;
-	int		size;
+	int	count;
+	int	diff;
+	int	size;
 
 	count = 0;
 	diff = 0;

@@ -63,7 +63,6 @@ void	algo2(t_list **a, t_list **b, int jk, int k)
 
 void	algorithm(t_list **a, t_list **b, int divide)
 {
-
 	init((*a));
 	calc((*a));
 	if (divide < 25)
