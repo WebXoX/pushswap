@@ -6,7 +6,7 @@
 /*   By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 08:26:28 by jperinch          #+#    #+#             */
-/*   Updated: 2023/06/15 15:34:53 by jperinch         ###   ########.fr       */
+/*   Updated: 2023/06/16 09:09:56 by jperinch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	spacexsign(const char *nptr, int i, int *sign)
 
 int	ft_atoi(const char *nptr, int move)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int			i;
+	int			sign;
+	long long	result;
 
 	sign = 1;
 	result = 0;
@@ -39,7 +39,8 @@ int	ft_atoi(const char *nptr, int move)
 	{
 		if (sign == -1 && i == 10 && result == 214748364 && nptr[i] > '8')
 			return (move);
-		if (sign == 1 && i == 9 && result == 214748364 && nptr[i] >= '7')
+		if (sign == 1 && i == 9 && (result == 214748364 || result == 184467440)
+			&& nptr[i] >= '7')
 			return (move);
 		if (nptr[i] >= '0' && nptr[i] <= '9')
 			result = result * 10 + (nptr[i] - '0');

@@ -6,7 +6,7 @@
 /*   By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:31:20 by jperinch          #+#    #+#             */
-/*   Updated: 2023/06/15 15:43:53 by jperinch         ###   ########.fr       */
+/*   Updated: 2023/06/16 09:00:08 by jperinch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	push_caller(t_list **a, int i, char *argc[], int argv)
 		{
 			if (checker(argc[i]) == 1)
 				return ;
-			if (argv > 2)
+			if (argv >= 2)
 				move = ft_atoi(argc[2], move);
 			move = ft_atoi(argc[i], move);
 			tmp = ft_lstnew(move);
