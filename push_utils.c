@@ -6,7 +6,7 @@
 /*   By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 09:43:51 by jperinch          #+#    #+#             */
-/*   Updated: 2023/06/15 14:07:47 by jperinch         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:08:29 by jperinch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ int	sab(t_list **ab, int size, int flag)
 	return (0);
 }
 
-void	ss(t_list **a, t_list **b)
-{
-	if (sab(&(*a), ft_lstsize((*a)), 1) == 1)
-		write(1, "failed", 6);
-	if (sab(&(*b), ft_lstsize((*b)), 2) == 1)
-		write(1, "failed", 6);
-	write(1, "ss\n", 3);
-}
+// void	ss(t_list **a, t_list **b)
+// {
+// 	if (sab(&(*a), ft_lstsize((*a)), 1) == 1)
+// 		write(1, "failed", 6);
+// 	if (sab(&(*b), ft_lstsize((*b)), 2) == 1)
+// 		write(1, "failed", 6);
+// 	write(1, "ss\n", 3);
+// }
 
 void	pab(t_list **source, t_list **distance, int flag)
 {

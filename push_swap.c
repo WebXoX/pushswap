@@ -6,7 +6,7 @@
 /*   By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:31:20 by jperinch          #+#    #+#             */
-/*   Updated: 2023/06/16 09:00:08 by jperinch         ###   ########.fr       */
+/*   Updated: 2023/06/19 09:36:08 by jperinch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@ void	algo1(t_list **a, t_list **b, int divide, int total)
 	int	i;
 	int	j;
 	int	amt;
+	int	total2;
 
-	i = total / divide - 2;
+	i = (total / divide) - 2;
 	while (i != -1)
 	{
 		j = 0;
 		amt = chunck(total, i, divide);
-		total = ft_lstsize((*a));
+		total2 = ft_lstsize((*a));
 		while ((*a))
 		{
-			if (j == total)
+			if (j == total2)
 				break ;
 			if (amt >= (*a)->amount)
 				pab(&(*a), &(*b), 2);
@@ -65,10 +66,10 @@ void	algorithm(t_list **a, t_list **b, int divide)
 {
 	init((*a));
 	calc((*a));
-	if (divide < 25)
-		divide = divide / 2;
-	else
+	if (divide >= 50)
 		divide = 25;
+	else
+		divide = divide / 2;
 	if (ft_lstsize((*a)) <= 10)
 	{
 		sort(&(*a), &(*b));
@@ -78,27 +79,27 @@ void	algorithm(t_list **a, t_list **b, int divide)
 	algo2(&(*a), &(*b), 0, 0);
 }
 
-void	push_caller(t_list **a, int i, char *argc[], int argv)
+void	push_caller(t_list **a, int *status, char *argc[], int argv)
 {
 	t_list	*tmp;
 	int		move;
+	int		i;
 
+	i = 1;
 	while (i < argv)
 	{
 		if (ft_strchr(argc[i], ' '))
 		{
-			tmp = split(argc[i]);
+			tmp = split(argc[i], status);
 			if (tmp == NULL)
 				break ;
 			ft_lstadd_back(&(*a), tmp);
 		}
 		else
 		{
-			if (checker(argc[i]) == 1)
+			if (checker(argc[i], status) == 1)
 				return ;
-			if (argv >= 2)
-				move = ft_atoi(argc[2], move);
-			move = ft_atoi(argc[i], move);
+			move = ft_atoi(argc[i], status, 1);
 			tmp = ft_lstnew(move);
 			ft_lstadd_back(&(*a), tmp);
 		}
@@ -110,13 +111,15 @@ int	main(int argv, char *argc[])
 {
 	t_list	*a;
 	t_list	*b;
+	int		status;
 
+	status = 0;
 	if (argv > 1)
 	{
 		a = NULL;
 		b = NULL;
-		push_caller(&(a), 1, argc, argv);
-		if (same((a)) == 0 && validate((a)) == 0)
+		push_caller(&(a), &status, argc, argv);
+		if (same((a), status) == 0 && validate((a)) == 0 && status != 1)
 			algorithm(&(a), &(b), ft_lstsize((a)));
 		ft_lstclear(&(a), free);
 	}

@@ -6,19 +6,21 @@
 /*   By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:37:29 by jperinch          #+#    #+#             */
-/*   Updated: 2023/06/15 15:37:57 by jperinch         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:54:02 by jperinch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	same(t_list *a)
+int	same(t_list *a, int status)
 {
 	t_list	*tmp;
 	t_list	*tmp1;
 	int		count;
 
 	tmp = a;
+	if(tmp ==NULL && status ==1)
+				write(1, "Error\n", 6);
 	while (tmp)
 	{
 		count = 0;
@@ -27,7 +29,7 @@ int	same(t_list *a)
 		{
 			if (tmp->content == tmp1->content)
 				count++;
-			if (count == 2)
+			if (count == 2 || status == 1)
 			{
 				write(1, "Error\n", 6);
 				return (1);

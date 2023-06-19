@@ -6,11 +6,12 @@
 /*   By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 08:26:28 by jperinch          #+#    #+#             */
-/*   Updated: 2023/06/16 09:09:56 by jperinch         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:50:41 by jperinch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	spacexsign(const char *nptr, int i, int *sign)
 {
@@ -25,27 +26,30 @@ int	spacexsign(const char *nptr, int i, int *sign)
 	return (i);
 }
 
-int	ft_atoi(const char *nptr, int move)
+int	ft_atoi(const char *nptr, int *status, int sign)
 {
 	int			i;
-	int			sign;
 	long long	result;
 
-	sign = 1;
 	result = 0;
-	i = 0;
-	i = spacexsign(nptr, i, &sign);
-	while (nptr[i] != '\0' && (i < 10 || (nptr[0] == '-' && i < 11)))
+	i = spacexsign(nptr, 0, &sign);
+	while (nptr[i] != '\0')
 	{
-		if (sign == -1 && i == 10 && result == 214748364 && nptr[i] > '8')
-			return (move);
-		if (sign == 1 && i == 9 && (result == 214748364 || result == 184467440)
-			&& nptr[i] >= '7')
-			return (move);
+		
 		if (nptr[i] >= '0' && nptr[i] <= '9')
 			result = result * 10 + (nptr[i] - '0');
 		else
 			break ;
+		if (sign == -1 && result > 2147483648)
+		{
+			(*status) = 1;
+			return (result);
+		}
+		if (sign == 1 && result > 2147483647)
+		{
+			(*status) = 1;
+			return (result);
+		}
 		i++;
 	}
 	return (result * sign);
