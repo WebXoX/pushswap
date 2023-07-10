@@ -6,7 +6,7 @@
 /*   By: jperinch <jperinch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 08:26:28 by jperinch          #+#    #+#             */
-/*   Updated: 2023/06/19 14:50:41 by jperinch         ###   ########.fr       */
+/*   Updated: 2023/06/20 08:44:02 by jperinch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_atoi(const char *nptr, int *status, int sign)
 		if (nptr[i] >= '0' && nptr[i] <= '9')
 			result = result * 10 + (nptr[i] - '0');
 		else
-			break ;
+			(*status) = 1;
 		if (sign == -1 && result > 2147483648)
 		{
 			(*status) = 1;
